@@ -1,0 +1,37 @@
+body{
+    font-family: "微軟正黑體";
+    position: relative;
+}
+
+.justify-content-end{
+    background-color: black;
+}
+.justify-content-end a{
+    color: white;
+}
+.main{
+    margin:30px 150px;
+}
+.k{
+    margin-bottom: 30px;
+    display: block;
+    text-align: center;
+}
+.container{
+    margin: 30px;
+    display: flex;
+}
+.col-sm{
+    /*border:solid 1px;*/
+    display: block;
+    text-align: center;
+}
+img{
+    margin: 10px;
+}
+.purchase{
+    margin-top: 30px;
+    margin-left: 45%;
+    width: 150px;
+    height: 70px;
+}
