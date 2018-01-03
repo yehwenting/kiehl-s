@@ -79,9 +79,7 @@ $today = getdate();
 
 $dailyDemandOf = mysqli_query($con,"SELECT SUM(type1),SUM(type2), SUM(type3), SUM(type4), SUM(type5), SUM(type6) FROM record WHERE date = '$today_date'");
 $ddRow = mysqli_fetch_array($dailyDemandOf);
-
-echo $ddRow['SUM(type1)']
-
+ 
  ?>
 
 
