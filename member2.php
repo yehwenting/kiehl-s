@@ -51,14 +51,21 @@ if($_SESSION['phone'] != null)
 {
  
         while($row = mysqli_fetch_array($result)){
-        
+        if($row['sex']==1){
+          $sex="女";
+        }else{
+          $sex="男";
+        }
         echo "<div class='r'>會員ID： $row[cid] </div>
               <div class='r'>名字： $row[name]</div> " . 
-              "<div class='r'>性別： $row[sex]</div> 
+              "<div class='r'>性別： $sex</div> 
               <div class='r'>電話： $row[phone]</div>
               <div class='r'> 生日： $row[birthday]</div>
               <div class='r'> 毛孔狀態: $row[pore] </div>
-              <div class='r'>膚質: $row[skin_type]</div>";
+              <div class='r1'>毛孔粗大程度(5是最大 1是最小)</div>
+              <div class='r'>膚質: $row[skin_type]</div>
+              <div class='r1'>膚質(5是最油 1是最乾)</div>"
+              ;
         ?>
 
       <?php   }
@@ -140,7 +147,13 @@ for($i=1;$i<=mysqli_num_rows($result2);$i++)
     text-align: center;
 }
 .r{
-  margin: 10px 40%;
+  margin: 10px 38%;
+}
+.r1{
+  font-size: 13px;
+  color: grey;
+  margin: -10px 38%;
+  margin-bottom: 5px;
 }
 .col-md-6{
   flex: none;

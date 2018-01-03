@@ -56,12 +56,12 @@
 
   <form method="post" action="get.php">  
    <input type = "hidden" name="phonenumber" value="<?php echo $phonenumber?>">
-    <div class="r1">亞馬遜白泥淨緻毛孔系列 : <input type='number' name="amount1" id='amount1' min='0'></div>
-    <div class="r1">冰河保濕-無油清爽系列 : <input type='number' name="amount2" id='amount2' min="0"></div>
-    <div class="r1">冰河保濕系列 : <input type='number' name="amount3" id="amount3" min='0'></div>
-    <div class="r1">光極淨白系列 : <input type='number' name="amount4" id="amount4" min='0'></div>
-    <div class="r1">超能量抗痕彈力系列 : <input type='number' name="amount5" id='amount5' min='0'></div>
-    <div class="r1">極限男性系列 : <input type='number' name="amount6" id='amount6' min='0'></div>
+    <div class="r1">亞馬遜白泥淨緻毛孔系列 : <input type='number' name="amount1" id='amount1' min='0' value="0"></div>
+    <div class="r1">冰河保濕-無油清爽系列 : <input type='number' name="amount2" id='amount2' min="0" value="0"></div>
+    <div class="r1">冰河保濕系列 : <input type='number' name="amount3" id="amount3" min='0' value="0"></div>
+    <div class="r1">光極淨白系列 : <input type='number' name="amount4" id="amount4" min='0' value="0"></div>
+    <div class="r1">超能量抗痕彈力系列 : <input type='number' name="amount5" id='amount5' min='0' value="0"></div>
+    <div class="r1">極限男性系列 : <input type='number' name="amount6" id='amount6' min='0' value="0"></div>
     <div><button type='submit' class='btn btn-outline-dark' name='submit'>送出</button>
     <a class='btn btn-outline-dark' href="findmember.php" role="button">返回</a></div>
   </form>

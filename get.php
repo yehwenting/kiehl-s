@@ -35,7 +35,7 @@
 	$amount4 = $con->real_escape_string($_POST['amount4']);
 	$amount5 = $con->real_escape_string($_POST['amount5']);
 	$amount6 = $con->real_escape_string($_POST['amount6']);
-
+	$amounts = array($amount1,$amount2,$amount3,$amount4,$amount5,$amount6);
 	$today = getdate();
  	date("Y-m-d H:i");  //日期格式化
  	$year = $today["year"]; //年
@@ -43,6 +43,22 @@
  	$day = $today["mday"];  //日
  	$today_date = $year."-".$month."-".$day;
 
+
+ 	$totalprice = 1200 * $amount1 + 800* $amount2 + 900 * $amount3 + 1800 * $amount4 + 2300* $amount5 + 900 * $amount6;
+
+ 	$query0 = "SELECT * FROM inventory";
+ 	$success0 = $con->query($query0);
+ 	if (!$success0) {
+	    die("Couldn't enter data: ".$con->error);
+	}
+	$num=0;
+	while($row = mysqli_fetch_array($success0)){
+		if($row['remain']<$amounts[$num]){
+			echo "<script>alert('訂單低於庫存，無法購買!'); window.history.go(-1);</script>";
+			exit;
+		}
+		$num++;
+	}
 
 	
 
@@ -61,7 +77,6 @@
 	$success = $con->query($query);
 	if (!$success) {
 	    die("Couldn't enter data: ".$con->error);
-	 
 	}
 	$success1 = $con->query($query1);
 	if (!$success1) {
@@ -148,7 +163,7 @@
 
 <?php }; ?>		
 	</table>
-
+		<h3 text-align="right">總金額 : <?php echo $totalprice?> 元 </h3>
 		<hr>
 		<h3>庫存剩餘</h3>
 <!-- 印出庫存TABLE -->
