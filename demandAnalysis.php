@@ -69,6 +69,19 @@ $type6S="SELECT distinct phone FROM record WHERE NOT phone = '000' AND type6 >0"
 $countT6= mysqli_query($con,$type6S);
 $R6=mysqli_num_rows($countT6);
 
+// 每日銷售量
+$today = getdate();
+  date("Y-m-d H:i");  //日期格式化
+  $year = $today["year"]; //年
+  $month = $today["mon"]; //月
+  $day = $today["mday"];  //日
+  $today_date = $year."-".$month."-".$day;
+
+$dailyDemandOf = mysqli_query($con,"SELECT SUM(type1),SUM(type2), SUM(type3), SUM(type4), SUM(type5), SUM(type6) FROM record WHERE date = '$today_date'");
+$ddRow = mysqli_fetch_array($dailyDemandOf);
+
+echo $ddRow['SUM(type1)']
+
  ?>
 
 
@@ -104,7 +117,8 @@ $R6=mysqli_num_rows($countT6);
       <th scope="col">年銷量</th>
       <th scope="col">點擊次數</th>
       <th scope="col">會員購買次數</th>
-      <th scope="col">回覆率</th>
+      <th scope="col">獲取率</th>
+      <th scope="col"><?php echo $today_date?> 日銷量</th>  
     </tr>
   </thead>
   <tbody>
@@ -130,6 +144,7 @@ $R6=mysqli_num_rows($countT6);
     <td scope="col"><?php echo $rowR ?></td>
     <td scope="col"><?php echo $R1 ?></td>
     <td scope="col"><?php echo $R1/$rowR ?></td>
+    <td scope="col"><?php echo $ddRow['SUM(type1)'] ?></td>
   </tr>
   <tr>
     <th>2</th>
@@ -138,6 +153,7 @@ $R6=mysqli_num_rows($countT6);
     <td><?php echo $rowO ?></td>
     <td><?php echo $R2 ?></td>
     <td ><?php echo $R2/$rowO ?></td>
+    <td ><?php echo $ddRow['SUM(type2)'] ?></td>
   </tr>
   <tr>
     <td>3</td>
@@ -146,6 +162,8 @@ $R6=mysqli_num_rows($countT6);
     <td><?php echo $rowU ?></td>
     <td><?php echo $R3 ?></td>
     <td><?php echo $R3/$rowU ?></td>
+    <td><?php echo $ddRow['SUM(type3)'] ?></td>
+
   </tr>
   <tr>
     <td>4</td>
@@ -154,6 +172,8 @@ $R6=mysqli_num_rows($countT6);
     <td><?php echo $rowC ?></td>
     <td><?php echo $R4 ?></td>
     <td><?php echo $R4/$rowC ?></td>
+    <td><?php echo $ddRow['SUM(type4)'] ?></td>
+
   </tr>
   <tr>
     <td>5</td>
@@ -162,6 +182,8 @@ $R6=mysqli_num_rows($countT6);
     <td><?php echo $rowW ?></td>
     <td><?php echo $R5 ?></td>
     <td><?php echo $R5/$rowW ?></td>
+    <td><?php echo $ddRow['SUM(type5)'] ?></td>
+
   </tr>
   <tr>
     <td>6</td>
@@ -170,6 +192,8 @@ $R6=mysqli_num_rows($countT6);
     <td><?php echo $rowM ?></td>
     <td><?php echo $R6 ?></td>
     <td><?php echo $R6/$rowM ?></td>
+    <td><?php echo $ddRow['SUM(type6)'] ?></td>
+
   </tr>
   <?php } ?>
   </tbody>
