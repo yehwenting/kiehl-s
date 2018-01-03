@@ -41,31 +41,31 @@ $countM = mysqli_query($con,$preM);
 $rowM=mysqli_num_rows($countM);
 
 //各項產品會員購買次數
-$type1S="SELECT * FROM record WHERE NOT phone = '000' AND type1 >0";
+$type1S="SELECT distinct phone FROM record WHERE NOT phone = '000' AND type1 >0";
 $countT1= mysqli_query($con,$type1S);
 $R1=mysqli_num_rows($countT1);
 
-$type2S="SELECT * FROM record WHERE NOT phone = '000' AND type2 >0";
+$type2S="SELECT distinct phone FROM record WHERE NOT phone = '000' AND type2 >0";
 $countT2= mysqli_query($con,$type2S);
 $R2=mysqli_num_rows($countT2);
 
 
-$type3S="SELECT * FROM record WHERE NOT phone = '000' AND type3 >0";
+$type3S="SELECT distinct phone FROM record WHERE NOT phone = '000' AND type3 >0";
 $countT3= mysqli_query($con,$type3S);
 $R3=mysqli_num_rows($countT3);
 
 
-$type4S="SELECT * FROM record WHERE NOT phone = '000' AND type4 >0";
+$type4S="SELECT distinct phone FROM record WHERE NOT phone = '000' AND type4 >0";
 $countT4= mysqli_query($con,$type4S);
 $R4=mysqli_num_rows($countT4);
 
 
-$type5S="SELECT * FROM record WHERE NOT phone = '000' AND type5 >0";
+$type5S="SELECT distinct phone FROM record WHERE NOT phone = '000' AND type5 >0";
 $countT5= mysqli_query($con,$type5S);
 $R5=mysqli_num_rows($countT5);
 
 
-$type6S="SELECT * FROM record WHERE NOT phone = '000' AND type6 >0";
+$type6S="SELECT distinct phone FROM record WHERE NOT phone = '000' AND type6 >0";
 $countT6= mysqli_query($con,$type6S);
 $R6=mysqli_num_rows($countT6);
 

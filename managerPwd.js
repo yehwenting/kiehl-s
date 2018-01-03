@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-	$(".btn").click(function(){
+	$(".btn1").click(function(){
 		let account=$("#account").val();
 		let pwd=$("#pwd").val();
 		if(account==000 && account!="" && pwd==000 && pwd!=""){
@@ -9,6 +9,12 @@ $(document).ready(()=>{
 			alert("帳號或密碼錯誤!!");
 		}
 		
+	});
+
+	$(".btn2").click(function(){
+		window.location.href='mainpage.html';
 	})
+
+
 	
 });// jQuery main

@@ -78,7 +78,7 @@ if(isset($_GET['submit'])==true && empty($_GET['name'])==false && empty($_GET['p
 	echo "<input type ='hidden' name = 'pname' value = 'men'>";
 	echo "<img src='https:\/\/s.yimg.com/wb/images/02ABB881A095A6CB8483245A0114A204ACCE0DD7' style='height:300; width: 300;'>";
 //	echo "<input type='checkbox' name='pname' value = 'men'>";
-	echo "<div><button type='button' class='btn btn-outline-dark' name='submit'>有興趣</button></div>";
+	echo "<div><button type='submit' class='btn btn-outline-dark' name='submit'>有興趣</button></div>";
 	echo "</form></div>";
 		
 }elseif ($pore>3){

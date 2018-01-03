@@ -81,8 +81,9 @@
     let daily_demand=parseInt(value['daily_demand']);
     let stock=parseInt(value['stock']);
     let lead_time=parseInt(value['lead_time']);
+    let STD=parseInt(value['STD'])
     let EOQ = parseInt(Math.sqrt((2*yearly_demand*2000)/(price*0.25))); 
-    let ROP = daily_demand*lead_time+stock;
+    let ROP = Math.ceil(daily_demand*lead_time+1.65*STD*Math.sqrt(lead_time));
     console.log(EOQ);
       console.log(price);
 
