@@ -79,6 +79,9 @@ $today = getdate();
 
 $dailyDemandOf = mysqli_query($con,"SELECT SUM(type1),SUM(type2), SUM(type3), SUM(type4), SUM(type5), SUM(type6) FROM record WHERE date = '$today_date'");
 $ddRow = mysqli_fetch_array($dailyDemandOf);
+
+$total=$ddRow['SUM(type1)']*1200+$ddRow['SUM(type2)']*800+$ddRow['SUM(type3)']*900+$ddRow['SUM(type4)']*1800+
+        $ddRow['SUM(type5)']*2300+$ddRow['SUM(type6)']*900;
  
  ?>
 
@@ -196,6 +199,7 @@ $ddRow = mysqli_fetch_array($dailyDemandOf);
   <?php } ?>
   </tbody>
 </table>
+  <h2>總金額 : <?php echo $total ?> 元</h2>
 </body>
 </html>
 
